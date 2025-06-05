@@ -7,18 +7,17 @@ class Banco{
         $this->db = new PDO("sqlite:sqlite.db");
     }
     
- 
 
-    public function livros(){
+    public function query($query, $class = null,$params = []){
         
-        $items = $this->db->query("SELECT * FROM livros")->fetchAll();
-        return array_map(fn($item)=>Livro::make($item),$items);
-    }
+        $prepare = $this->db->prepare($query);
 
-    public function livro($id = null){
-        $items = $this->db->query("SELECT * FROM livros WHERE id = $id")->fetchAll();
-  
-        return array_map(fn($item)=>Livro::make($item),$items)[0];
+        if($class){
+            $prepare->setFetchMode(PDO::FETCH_CLASS, $class);
+        }
+       
+        $prepare->execute($params);
+        return $prepare;
     }
-        
+   
 }
