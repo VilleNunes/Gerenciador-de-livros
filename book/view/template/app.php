@@ -9,7 +9,7 @@
 <body class="bg-stone-950">
     <header class=" bg-stone-900 border-b-2 border-stone-900  px-8 py-4">
         <nav class="max-w-screen-lg mx-auto flex justify-between text-stone-400">
-            <div class="text-xl font-bold">Book Wise</div>
+            <div class="text-xl font-bold flex items-center gap-3"><img src="icons/book.svg" alt=""> Book Wise</div>
             <ul class="justify-between flex gap-5">
                 <li>
                     <a href="index" class="text-green-700 underline font-medium">Explorar</a>

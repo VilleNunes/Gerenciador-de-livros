@@ -1,3 +1,4 @@
 <?php
-  require "dados.php";
-view("index",["livros"=>$dados]);
+  
+  $dados = (new Banco)->livros();
+  view("index",["livros"=>$dados]);
